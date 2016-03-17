@@ -333,7 +333,13 @@ Deface includes a couple of rake tasks that can be helpful when defining or debu
 
     rake deface:test_selector[shared/_head,title]
 
-    rake deface:test_selector['admin/products/index','div.toolbar']
+    rake deface:test_selector['admin/products/index, div.toolbar']
+
+    # make sure no spaces around the comma(`,`) if writing the pact and selector as separate string
+    rake deface:test_selector['admin/products/index','div.toolbar'] 
+    
+    # this won't work
+    rake deface:test_selector['admin/products/index', 'div.toolbar'] 
 
 **deface:precompile** - Generates compiled views that contain all overrides applied. See `Production & Precompiling` section below for more.
 
